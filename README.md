@@ -14,12 +14,20 @@
 style={{ color: 'red', fontSize: '20px' }}
 ```
 
+##### React.js를 사용할 때는 화면에 무엇이 표현되어야 하는가, 즉 목표를 정의하고 React가 거기까지 도달하는 방법을 알아내도록 만들어야 한다.
+##### React.js에서는 선언형(Declarative) JS 코드로 작성.
+##### JSX 구문은 React 프로젝트에서 활성화되는 특수한 비표준 구문이며, 백그라운드에서 표준 JS 코드로 컴파일된다.
+
+-----
 
 ##### ⭐ Component ⭐
 
+##### 일반적으로 해당 컴포넌트가 사용될 때 화면에 표시되는 HTML(=JSX) 코드를 반환하는 JS 함수
 ##### 길고 복잡한 반복적인 html 한 단어로 정리  / 변경 잦은 UI
 ##### 기존 function 벗어나 새로운 function 생성 / !대문자로 시작!
 ##### return문 안에 html 작성 / component 생성 후 tag형식으로 함수 사용
+
+##### 컴포넌트 트리 : 루트 노드 아래에 여러 컴포넌트가 중첩되어 있는 것. 
 
 ```
 function ExpenseItem() {
