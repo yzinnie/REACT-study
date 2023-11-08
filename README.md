@@ -1,6 +1,10 @@
 ##  REACT-study 💫
 
+#### npm install > npm start
+
 #### ✅part 1
+
+
 
 ##### return()문 안에 html 코드 작성
 
