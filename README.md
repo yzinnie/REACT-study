@@ -78,6 +78,23 @@ export default App;
 
 -----
 
+##### 🌍 user Interface & state
+##### 모든 내장 HTML 요소에는 지원되는 이벤트 리스너를 추가할 수 있음.
+##### Handling Events - onClick - React.DOMAttributes<HTMLButtonElement>
+##### 이벤트 리스너의 사용은 간단하지만 JSX블록에 많이 만드는 것은 복잡한 코드가 됨.
+##### return()문 전에 함수나 변수 정의 / 👉🏻 Handler!!
+```
+const clickHandler = () => {
+    console.log('clicked!!');
+  };
+
+return (
+  <button onClick={clickHandler}>Change Title</button> 
+);
+```
+
+
+-----
 ##### 🌞 useState( ) 
 ##### useState는 현재의 state 값과 이 값을 업데이트하는 함수를 쌍으로 제공 / 자동 재렌더링
 ```
