@@ -97,18 +97,38 @@ return (
 -----
 ##### 🌞 useState( ) 
 ##### useState는 현재의 state 값과 이 값을 업데이트하는 함수를 쌍으로 제공 / 자동 재렌더링
+
+```
+import React, { useState } from 'react';
+```
+
+#####  useState(0); = 초깃값은 0
 ```
 const [count, setCount] = useState(0);
 ```
 
 ##### 재렌더링 / state 변경 -> state함수명(새로운 state)
-##### 클릭하면 useState 값이 1로 변경
+##### '👍🏻'클릭하면 useState 값이 1로 변경
 ```
-<span onClick={() => {setCount(1)}}>👍🏻</span> {count}
+<span onClick={() => {setCount(1)}}> 👍🏻 </span> {count}
 ```
 ##### 클릭하면 useState 값이 +1씩 증가
 ```
-<span onClick={() => {setCount(count+1)}}>👍🏻</span> {count}
+<span onClick={() => {setCount(count+1)}}> 👍🏻 </span> {count}
+```
+
+##### Change Title 버튼 클릭하면 props.title = setTitle
+```
+const ExpenseItem = (props) => {
+ const [title, setTitle] = useState(props.title);
+
+  const clickHandler = () => {
+    setTitle('Updated!');
+  };
+
+//return
+    <button onClick={clickHandler}>Change Title</button>
+};
 ```
 
 ##### state - array / object 변경 -> 새로운 공간에 값을 복사하여 할당/ [...배열] {...객체} / state 값 같을 경우 변경 X 
