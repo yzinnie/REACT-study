@@ -107,7 +107,7 @@ import React, { useState } from 'react';
 const [상태변수, 상태 변경 함수] = useState(초깃값);
 ```
 
-#####  useState(0); = 초깃값은 0
+#####  useState(0); === 초깃값 0
 ```
 const [count, setCount] = useState(0);
 ```
@@ -122,7 +122,7 @@ const [count, setCount] = useState(0);
 <span onClick={() => {setCount(count+1)}}> 👍🏻 </span> {count}
 ```
 
-##### Change Title 버튼 클릭하면 props.title = setTitle
+##### Change Title 버튼 클릭하면 props.title === setTitle
 ```
 const ExpenseItem = (props) => {
  const [title, setTitle] = useState(props.title);
@@ -136,6 +136,111 @@ const ExpenseItem = (props) => {
 };
 ```
 
-##### state - array / object 변경 -> 새로운 공간에 값을 복사하여 할당/ [...배열] {...객체} / state 값 같을 경우 변경 X 
+#### 여러 개의 state 업데이트 ✅
+##### ❄ 개별의 useState 조각으로 업데이트 : useState를 필요한 만큼 사용한다. 여러 개의 조각들은 완전히 별개의 것으로 취급.
+##### 독립된 방법으로 작동하고, 다른 조각에 영향을 주지 않는다. state의 초깃값은 빈문자열로 작성한다.
 
-#### 여러 개의 개별 state 
+```
+import { useState } from 'react'
+
+const [title, setTitle] = useState('');
+const [amount, setAmount] = useState('');
+const [date, setDate] = useState('');
+
+const titleChangeHandler = (e) => {
+  setTitle(e.target.value);
+}
+const amountChangeHandler = (e) => {
+  setAmount(e.target.value);
+}
+const dateChangeHandler = (e) => {
+  setDate(e.target.value);
+}
+```
+
+##### ❄ 한 개의 useState 조각으로 업데이트 : useState를 한 개만 사용하고, 이전의 값은 새로운 state로 변환된다. 
+##### 이전의 state를 잃지 않기 위하여 spread 문법 사용 !!
+##### 다수의 상태 업데이트를 동시에 예약할 경우 오래되었거나 잘못된 상태 스냅샷에 의존하게 될 수도 있다
+
+```
+import { useState } from 'react'
+
+const [input, setInput] = useState({
+  title: '',
+  amount: '',
+  date: '',
+})
+
+const titleChangeHandler = (e) => {
+  setInput({
+    ...input,
+    title: e.target.value,
+  });
+}
+const amountChangeHandler = (e) => {
+  setInput({
+    ...input,
+    amount: e.target.value,
+  });
+}
+const dateChangeHandler = (e) => {
+  setInput({
+    ...input,
+    date: e.target.value,
+  });
+}
+```
+##### 
+
+
+##### ❄ 이전 상태에 의존해 상태를 업데이트할 때는 함수 문법을 사용해야 한다.
+##### 상태 업데이트 대체 함수를 생성하여 사용한다면 그 내부 함수에서 제공하는 상태 스냅샷이 예약된 모든 상태 업데이트를 기억하고, 항상 최신 상태 스냅샷이 되도록 보장해 준다.
+
+```
+import { useState } from 'react'
+
+const [input, setInput] = useState({
+  title: '',
+  amount: '',
+  date: '',
+})
+
+const titleChangeHandler = (e) => {
+  setInput((prevState) => {
+    return { ...prevState, title: e.target.value }
+  });
+}
+const amountChangeHandler = (e) => {
+  setInput((prevState) => {
+    return { ...prevState, amount: e.target.value }
+  });
+}
+const dateChangeHandler = (e) => {
+  setInput((prevState) => {
+    return { ...prevState, date: e.target.value }
+  });
+}
+```
+
+#### counter -->
+```
+import React, {useState} from 'react';
+
+export default function App() {
+    const [counter, setCounter] = useState(0);
+    
+    function clickHandler(){
+        setCounter(prevCounter => prevCounter + 1);
+    }
+    
+    return (
+      <div>
+        <p id="counter">{counter}</p>
+        <button onClick={clickHandler}>Increment</button>
+      </div>
+    );
+}
+
+```
+
+
