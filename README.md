@@ -102,6 +102,11 @@ return (
 import React, { useState } from 'react';
 ```
 
+
+```
+const [상태변수, 상태 변경 함수] = useState(초깃값);
+```
+
 #####  useState(0); = 초깃값은 0
 ```
 const [count, setCount] = useState(0);
@@ -132,3 +137,5 @@ const ExpenseItem = (props) => {
 ```
 
 ##### state - array / object 변경 -> 새로운 공간에 값을 복사하여 할당/ [...배열] {...객체} / state 값 같을 경우 변경 X 
+
+#### 여러 개의 개별 state 
