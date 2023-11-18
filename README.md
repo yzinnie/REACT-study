@@ -1,6 +1,6 @@
 ##  REACT-study 💫
 
-#### npm install > npm start
+#### 🐱👉🏻 npm install > npm start
 
 #### ✅part 1
 
