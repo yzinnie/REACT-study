@@ -243,4 +243,23 @@ export default function App() {
 
 ```
 
+#### map() 사용하기 👉🏻
+
+##### --> props로 받아오는 반복되는 컴포넌트 배열은 모두 입력하는 하드코딩을 하지 않고, map()을 사용한다.
+
+```
+ {props.items.map((expense) => (
+   <ExpenseItem
+    title={expense.title}
+    amount={expense.amount}
+    date={expense.date}
+   />
+  ))}
+```
+
+##### 🌡 Warning :Each child in a list should have a unique "key" prop.
+##### --> React는 업데이트 요소들을 기존의 요소들과 비교 후에 변경하는데, 이때 key로 식별한다.
+##### key는 해당 엘리먼트에 안정적인 고유성을 보유해 주고, 그 고유성을 비교하여 렌더링을 효과적으로 수행한다.
+##### key의 값은 같은 map 형제에서 고유한 값이어야 한다. (전체범위는 아님)
+##### 고유 식별자는 원시 값이나 숫자 문자열도 가능.
 
