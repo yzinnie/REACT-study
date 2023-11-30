@@ -1,10 +1,8 @@
 ##  REACT-study 💫
 
-#### 🐱👉🏻 npm install > npm start
+#### 🐱👉🏻 ctrl+j > npx create-react-app projectName // (npm install) > npm start > (END) ctrl+c > Y
 
 #### ✅part 1
-
-
 
 ##### return()문 안에 html 코드 작성
 
@@ -12,13 +10,16 @@
 
 ##### JSX 문법 2. { } 중괄호 사용 -> 자바스크립트 표현식 작성 / 변수 넣을 때 / id, className .. 등등에서 사용 가능 / 데이터 바인딩
 
-##### JSX 문법 3. style= { } -> object형식으로 / js 코드에서 바로 작성
+##### JSX 문법 3. style= { } -> object형식으로 / js 코드에서 바로 작성 가능
 
 ```
 style={{ color: 'red', fontSize: '20px' }}
 ```
 
-##### React.js를 사용할 때는 화면에 무엇이 표현되어야 하는가, 즉 목표를 정의하고 React가 거기까지 도달하는 방법을 알아내도록 만들어야 한다.
+##### JSX 문법 4. 반드시 하나의 최상위 태그 필요. <React.Fragment> 태그로 가능.
+
+
+##### 🎨 React.js를 사용할 때는 화면에 무엇이 표현되어야 하는가, 즉 목표를 정의하고 React가 거기까지 도달하는 방법을 알아내도록 만들어야 한다.
 ##### React.js에서는 선언형(Declarative) JS 코드로 작성.
 ##### JSX 구문은 React 프로젝트에서 활성화되는 특수한 비표준 구문이며, 백그라운드에서 표준 JS 코드로 컴파일된다.
 
