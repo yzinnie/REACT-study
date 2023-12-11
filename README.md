@@ -264,3 +264,41 @@ export default function App() {
 ##### key의 값은 같은 map 형제에서 고유한 값이어야 한다. (전체범위는 아님)
 ##### 고유 식별자는 원시 값이나 숫자 문자열도 가능.
 
+### React Hooks 👽
+
+##### Ligecycle ⁕ Mount,Update, UnMount (탄생(초기화), 변화(예외 처리), 죽음(메모리 정리))
+##### ⁕ ComponentDidMount, ComponentDidUpdate, ComponentWillUnmount
+
+
+##### 함수형 컴포넌트에서는 React Hooks를 이용해서 라이프 사이클을 제어한다.
+##### useEffect -> React가 제공하는 기능 중 하나. import, 2개의 파라미터 (callback, 의존성 배열(Depth, Dependency Array))
+
+```
+useEffect(() => {}, []);
+```
+
+##### callback 함수에는 컴포넌트가 업데이트 되는 순간에 실행하고 싶은 코드를 작성한다.
+```
+  useEffect(() => {
+    console.log('update!');
+  }); 
+```
+
+#####  Dependency Array에 있는 값이 변화하게 되면 callback 함수가 실행된다.
+```
+  useEffect(() => {
+    console.log(`count is update ${count}`);
+  }, [count]);
+
+```
+
+```
+  useEffect(() => {
+    console.log(`count is update ${count}`);
+    if (count > 5) {
+      alert('count가 5를 넘었습니다. 1로 초기화합니다.');
+      setCount(1);
+    }
+  }, [count]);
+```
+
